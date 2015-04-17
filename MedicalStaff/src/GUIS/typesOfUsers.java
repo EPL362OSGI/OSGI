@@ -1,3 +1,8 @@
+// allages
+
+
+
+
 package GUIS;
 
 public enum typesOfUsers {
