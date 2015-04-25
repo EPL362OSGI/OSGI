@@ -6,14 +6,23 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GUI_Patients extends JFrame {
 
@@ -29,16 +38,7 @@ public class GUI_Patients extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI_Patients frame = new GUI_Patients();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	
 	}
 
 	/**
@@ -151,5 +151,23 @@ public class GUI_Patients extends JFrame {
 		lblDead.setFont(new Font("Calibri", Font.PLAIN, 14));
 		lblDead.setBounds(183, 237, 85, 16);
 		panel_1.add(lblDead);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				General frame = new General();
+				frame.setVisible(true);
+				setVisible(false);
+				
+			}
+		});
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnBack.setFont(new Font("Calibri", Font.PLAIN, 14));
+		btnBack.setBounds(383, 202, 109, 23);
+		panel_1.add(btnBack);
 	}
 }

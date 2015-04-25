@@ -25,6 +25,9 @@ import javax.swing.JButton;
 import javax.swing.Icon;
 import javax.swing.JRadioButton;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class GUI_Staff extends JFrame {
 
 	private JPanel contentPane;
@@ -40,16 +43,7 @@ public class GUI_Staff extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI_Staff frame = new GUI_Staff();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		
 	}
 
 	/**
@@ -179,6 +173,19 @@ public class GUI_Staff extends JFrame {
         Bsave.setFont(new Font("Calibri", Font.PLAIN, 14));
         Bsave.setBounds(383, 242, 109, 23);
 		panel_1.add(Bsave);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				General frame = new General();
+				frame.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnBack.setFont(new Font("Calibri", Font.PLAIN, 14));
+		btnBack.setBounds(383, 208, 109, 23);
+		panel_1.add(btnBack);
 		
 	}
 }
